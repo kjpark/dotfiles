@@ -5,6 +5,7 @@
 " https://dougblack.io/words/a-good-vimrc.html
 " 'Don't put any lines in your vimrc that you don't understand.'
 
+" https://draculatheme.com/vim/
 colorscheme dracula
 
 " Spaces and Tabs
