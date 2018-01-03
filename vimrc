@@ -13,6 +13,7 @@ syntax enable           " enable...syntax
 set tabstop=4           " tab = 4 spaces
 set softtabstop=4       " tab while editing
 set expandtab           " tabs are spaces
+set shiftwidth=4        " >> indents 4 spaces
 
 set backspace=indent,eol,start " backspace over newlines
 
