@@ -4,7 +4,30 @@ export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
 alias ls='ls -GFh'
+
+# Is this allowed?
+# shorthand optimized for dvorak layout
+
+alias e='clear;'
+alias p='python'
+
+alias u='echo;ls; echo'
+alias ua='echo; ls -a; echo'
+alias uu='echo; ls -l; echo'
+alias uau='echo; ls -la; echo'
+
 alias tree='tree -C' # persistent colors don't work so
+alias h='tree -d'
+alias h1='tree -L 1'
+alias h2='tree -L 2'
+alias h3='tree -L 3'
+alias h4='tree -L 4'
+
+alias g='echo; git status; echo'
+alias ga='git add'
+alias gc='git commit'
+alias gd='git diff'
+alias gl='git log'
 
 export COMMAND_LINE_INSTALL="true"
 
