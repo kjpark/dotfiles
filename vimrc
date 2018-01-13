@@ -28,6 +28,7 @@ set showmatch           " and this
 
 nnoremap <silent> <C-l> :nohl<CR><C-l> " <C-l> = redraw + rm highlights
 set ruler               " x and y positions in bottom right
+set noesckeys           " no delay with ^[ followed by O
 
 " Searching
 set incsearch           " search as characters are entered
