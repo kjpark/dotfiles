@@ -17,7 +17,8 @@ alias uu='echo; ls -l; echo'
 alias uau='echo; ls -la; echo'
 
 alias tree='tree -C' # persistent colors don't work so
-alias h='tree -d'
+alias h='tree -L 1'
+alias h1='tree -L 1'
 alias h1='tree -L 1'
 alias h2='tree -L 2'
 alias h3='tree -L 3'
