@@ -6,7 +6,7 @@
 " 'Don't put any lines in your vimrc that you don't understand.'
 
 " https://draculatheme.com/vim/
-colorscheme dracula
+" colorscheme dracula
 
 " Spaces and Tabs
 syntax enable           " enable...syntax
