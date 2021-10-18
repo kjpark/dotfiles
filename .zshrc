@@ -16,6 +16,7 @@ alias ai="zi"
 # program shorts
 alias g="git"
 alias gst="git status"
+alias py="python3"
 alias d="docker"
 alias k="kubectl"
 
