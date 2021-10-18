@@ -9,6 +9,7 @@ no crazy magic anymore, just a simple reference repo.
 - exa
 - starship
 - zoxide
+- zsh-syntax-highlighting
 
 - docker
 - kubectl
