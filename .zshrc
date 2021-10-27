@@ -27,6 +27,9 @@ alias k="kubectl"
 
 alias ez="vim ~/.zshrc"
 
+# enable vim bindings
+bindkey -v
+
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
