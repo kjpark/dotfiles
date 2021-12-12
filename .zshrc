@@ -6,6 +6,7 @@ alias cat="bat"
 alias rm="rm -i"
 
 # ergo keybinds
+alias ..="cd .."
 alias e="clear;"
 alias u="la"
 alias ut="la --sort newest"
