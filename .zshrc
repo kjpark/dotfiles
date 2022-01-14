@@ -4,6 +4,7 @@ alias ll="ls -l"
 alias la="ls -la"
 alias cat="bat"
 alias rm="rm -i"
+alias f5="exec $SHELL"
 
 # ergo keybinds
 alias ..="cd .."
@@ -32,7 +33,7 @@ alias kg="kubectl get"
 alias tf="terraform"
 alias tfe="tfenv"
 
-alias ez="vim ~/.zshrc"
+alias ez="o ~/.zshrc"
 
 # enable vim bindings
 bindkey -v
