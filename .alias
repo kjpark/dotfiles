@@ -42,4 +42,7 @@ alias tfs="tf state"
 alias tfsl="tf state list"
 alias tfss="tf state show"
 alias tfo="tf output"
-
+alias cg="cargo"
+alias cgb="cargo build"
+alias cgc="cargo check"
+alias cgr="cargo run"
