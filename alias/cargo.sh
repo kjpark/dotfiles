@@ -1,0 +1,5 @@
+alias cg="cargo"
+alias cgb="cargo build"
+alias cgc="cargo check"
+alias cgn="cargo new"
+alias cgr="cargo run"
