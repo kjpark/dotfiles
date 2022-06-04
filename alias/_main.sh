@@ -6,54 +6,47 @@
 # should i be using functions for everything instead?
 # https://www.gnu.org/software/bash/manual/bash.html#Aliases
 
-## potential solutions
-# - resolves dependencies by filename
-#   - ie for "git.sh" to be run, `git` must be installed
-#   - cons: err prone, hard to extend (multi-program aliases)
-# - deps declared in each alias
-#   - cons: adds complexity / maintennance / err prone
-# - automatically checks for working aliases
-#   - ie: try $alias, if good, then do it
-#   - for every line in each file
-#     - if ERR, do not assign alias
-#   - cons: performance?
-
-## chosen solution:
-# check that alias works, then enable it
-# - CHALLENGE: verification
-#   - executing to verify may cause side fx
-#     - ie testing `alias hehe="sudo rm -rf /"` is bad
-#     - could just verify the underlying first command exists
-#   - so pretty much test if cmd exists, that's it
-
 #
 # SCRIPT START
 #
 
-# set -x
+# get list of files
+# sort each file
+# report
+# load good
+# cleanup
 
-# gets underlying cmd from alias definition
-get_cmd () {
-  echo "$1" | cut -d "=" -f 2 | tr -d \"\'
+OK_PATH="/tmp/OK.alias"
+ERR_PATH="/tmp/ERR.alias"
+
+# (alias line) -> bool
+check_line () {
+  # everything on the alias def
+  local cmd=$(echo "$1" | cut -d "=" -f 2 | tr -d \"\')
+  command -v $cmd &> /dev/null # no quotes to grab first word
 }
 
-test_cmd () {
-  echo "test"
-}
-
-main () {
-  while read -r line
-  do
-    if command -v $(get_cmd "$line") &> /dev/null ; then
-      echo "PASS $line"
+# (alias file) -> good/bad aliases files
+check_file () {
+  local input="./terraform.sh" # hardcoded 4 now
+  # [ -n "$line" ] to scan files that don't end with `\n`
+  while IFS="" read -r line || [ -n "$line" ]; do
+    if check_line "$line"; then
+      echo "$line" >> $OK_PATH
     else
-      echo "FAIL $line"
+      echo "$line" >> $ERR_PATH
     fi
   done < "$input"
 }
 
-input="./git.sh"
-echo TESTING:
-echo
+cleanup () {
+  command rm $OK_PATH
+  command rm $ERR_PATH
+}
 
-main
+check_file
+echo OK:
+cat $OK_PATH
+echo ERR:
+cat $ERR_PATH
+cleanup
