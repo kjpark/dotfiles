@@ -18,12 +18,15 @@
 
 OK_PATH="/tmp/OK.alias"
 ERR_PATH="/tmp/ERR.alias"
+touch $OK_PATH
+touch $ERR_PATH
 
 # (alias line) -> bool
 check_line () {
-  # everything on the alias def
+  # BUG: `tr` naive impl
   local cmd=$(echo "$1" | cut -d "=" -f 2 | tr -d \"\')
-  command -v $cmd &> /dev/null # no quotes to grab first word
+  # no quotes to grab first WORD only
+  command -v $cmd &> /dev/null
 }
 
 # (alias file) -> good/bad aliases files
@@ -32,6 +35,10 @@ check_file () {
   # [ -n "$line" ] to scan files that don't end with `\n`
   while IFS="" read -r line || [ -n "$line" ]; do
     if check_line "$line"; then
+      # load alias now to validate dependent aliases
+      # alias tf="terraform"
+      # alias tfp="tf plan"
+      eval "$line"
       echo "$line" >> $OK_PATH
     else
       echo "$line" >> $ERR_PATH
