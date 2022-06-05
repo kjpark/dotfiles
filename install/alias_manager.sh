@@ -75,6 +75,10 @@ aliases="${OUT_PATH}/aliases"
 errors="${OUT_PATH}/errors"
 
 setup () {
+  # bash does not expand aliases in non-interactive shells
+  # therefore the `expand_aliases` shell option must be explicitly set
+  command shopt -s expand_aliases
+
   command mkdir -p "$OUT_PATH"
   command echo "" > "$aliases"
   command echo "" > "$errors"

@@ -9,6 +9,7 @@ alias vim="nvim"
 
 # ergo keybinds
 alias ..="cd .."
+alias z="zoxide" # hack bc `z` is `eval` at runtime in .*rc
 alias a="z"
 alias ai="zi"
 alias o="clear ;"
@@ -17,9 +18,8 @@ alias u="la"
 
 # combo ergobinds
 alias erc="e ~/.*rc" # "edit rc"
+alias ok="o t; u"
 alias ou="o u"
-alias ot="o t"
-alias out="o t; u"
 alias t="date \"+%H : %M\" | figlet | lolcat"
 alias ut="la --sort newest"
 alias uu="ll"
