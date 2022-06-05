@@ -52,17 +52,11 @@ dotfiles/
 source ~/dotfiles/alias/*
 ```
 
-## programs list (deleteme)
-```
-bat
-exa
-starship
-zoxide
-zsh-syntax-highlighting
+### brew
 
-docker
-kubectl
+[ref (may be outdated)](https://github.com/homebrew/legacy-homebrew/issues/45003)
 
-figlet
-lolcat
+```shell
+brew list > file
+cat file | xargs brew install
 ```
