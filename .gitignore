@@ -1,0 +1,8 @@
+### regular ignore
+
+.DS_Store
+
+### custom
+
+# generated files
+target/

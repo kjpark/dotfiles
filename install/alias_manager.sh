@@ -16,8 +16,8 @@
 # SCRIPT START
 #
 
-ALIAS_DIR="."
-OUT_PATH="/tmp/alias"
+ALIAS_DIR="../alias"
+OUT_PATH="../target/alias_manager"
 
 main () {
   setup
