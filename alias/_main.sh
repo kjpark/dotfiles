@@ -22,7 +22,7 @@ ERR_PATH="/tmp/ERR.alias"
 
 main () {
   setup
-  check_file
+  parse_files
   report
   teardown
 }
@@ -30,6 +30,12 @@ main () {
 #
 # logic
 #
+
+parse_files () {
+  for f in "$ALIAS_DIR"/*; do
+    check_file "$f"
+  done
+}
 
 is_alias () {
   # naive determine if line is an alias def
@@ -46,7 +52,7 @@ check_line () {
 
 # (alias file) -> good/bad aliases files
 check_file () {
-  local input="./test.sh" # hardcoded 4 now
+  local input="$1"
 
   # [ -n "$line" ] to scan files that don't end with `\n`
   while IFS="" read -r line || [ -n "$line" ]; do
