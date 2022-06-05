@@ -16,6 +16,7 @@
 # SCRIPT START
 #
 
+ALIAS_DIR="."
 OK_PATH="/tmp/OK.alias"
 ERR_PATH="/tmp/ERR.alias"
 
@@ -30,6 +31,11 @@ main () {
 # logic
 #
 
+is_alias () {
+  # naive determine if line is an alias def
+  [ "alias" = "$(echo "$1" | command cut -c 1-5)" ]
+}
+
 # (alias line) -> bool
 check_line () {
   # BUG: `tr` naive impl
@@ -40,9 +46,11 @@ check_line () {
 
 # (alias file) -> good/bad aliases files
 check_file () {
-  local input="./misc.sh" # hardcoded 4 now
+  local input="./test.sh" # hardcoded 4 now
+
   # [ -n "$line" ] to scan files that don't end with `\n`
   while IFS="" read -r line || [ -n "$line" ]; do
+    if ! is_alias "$line"; then continue; fi
     if check_line "$line"; then
       # load alias now to validate dependent aliases
       # alias tf="terraform"
@@ -75,6 +83,7 @@ setup () {
 report () {
   command echo OK
   command cat $OK_PATH
+  command echo
   command echo ERR
   command cat $ERR_PATH
 }
