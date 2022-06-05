@@ -17,14 +17,12 @@
 #
 
 ALIAS_DIR="."
-OK_PATH="/tmp/OK.alias"
-ERR_PATH="/tmp/ERR.alias"
+OUT_PATH="/tmp/alias"
 
 main () {
   setup
   parse_files
   report
-  teardown
 }
 
 #
@@ -62,9 +60,9 @@ check_file () {
       # alias tf="terraform"
       # alias tfp="tf plan"
       command eval "$line"
-      command echo "$line" >> $OK_PATH
+      command echo "$line" >> "$aliases"
     else
-      command echo "$line" >> $ERR_PATH
+      command echo "$line" >> "$errors"
     fi
   done < "$input"
 }
@@ -73,30 +71,21 @@ check_file () {
 # lifecycle
 #
 
+aliases="${OUT_PATH}/aliases"
+errors="${OUT_PATH}/errors"
+
 setup () {
-  check_path () {
-      if [ -e "$1" ]; then
-        command echo "ERR: $OK_PATH is not empty; aborting"
-        command exit 1
-      fi
-  }
-  check_path $OK_PATH
-  check_path $ERR_PATH
-  command touch $OK_PATH
-  command touch $ERR_PATH
+  command mkdir -p "$OUT_PATH"
+  command echo "" > "$aliases"
+  command echo "" > "$errors"
 }
 
 report () {
   command echo OK
-  command cat $OK_PATH
+  command cat "$aliases"
   command echo
   command echo ERR
-  command cat $ERR_PATH
-}
-
-teardown () {
-  command rm $OK_PATH
-  command rm $ERR_PATH
+  command cat "$errors"
 }
 
 #
