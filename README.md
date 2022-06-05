@@ -5,6 +5,8 @@ WIP -- roadmapping the structure and function in this file
 - 2022 edition!
 - goal: organize & automate
 
+![ok preview](https://user-images.githubusercontent.com/6612147/172035027-1aa88901-d7f7-412e-964c-03c1abe950e0.png)
+
 ## structure
 
 - todo
