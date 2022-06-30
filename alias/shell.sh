@@ -10,6 +10,7 @@ alias mv="mv -i"
 
 alias f5="exec $SHELL"
 alias vim="nvim"
+alias br="printf '\n\n' ;"
 
 # ergo keybinds
 alias ..="cd .."
