@@ -16,3 +16,6 @@ autoload -Uz compinit && compinit
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# nice to have
+mkcd() { mkdir -p "$@" && cd "$@" ; }
