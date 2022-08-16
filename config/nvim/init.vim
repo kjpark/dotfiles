@@ -1,3 +1,17 @@
+lua require('plugins')
+
+lua << EOF
+-- https://github.com/nvim-treesitter/nvim-treesitter#modules
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "lua", "rust" },
+  sync_install = false,
+  auto_install = true,
+  highlight = {
+    enable = true,
+  },
+}
+EOF
+
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
 set ignorecase              " case insensitive 
@@ -13,7 +27,6 @@ set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
 set cc=80                   " set an 80 column border for good coding style
 filetype plugin indent on   " allow auto-indenting depending on file type
-syntax on                   " syntax highlighting
 set mouse=a                 " enable mouse click
 set clipboard=unnamedplus   " using system clipboard
 filetype plugin on
