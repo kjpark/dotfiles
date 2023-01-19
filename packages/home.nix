@@ -16,7 +16,6 @@ in buildEnv {
     pkgs.figlet
     pkgs.git
     pkgs.lolcat
-    pkgs.neovim
     pkgs.ripgrep
     pkgs.starship
     pkgs.zoxide
