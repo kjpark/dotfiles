@@ -1,12 +1,5 @@
 alias ez="o ~/.zshrc"
 
-# enable vim bindings
-bindkey -v
-# fix broken backspace after entering INSERT mode
-bindkey "^?" backward-delete-char 
-# reverse search history
-bindkey '^R' history-incremental-search-backward
-
 # case insensitive path-completion
 # https://scriptingosx.com/2019/07/moving-to-zsh-part-5-completions/
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
